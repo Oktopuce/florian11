@@ -1,0 +1,40 @@
+.pb_form {
+
+    .pb_input-group {
+
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .pb_button {
+
+        width: auto;
+
+        &:hover {
+
+            cursor: pointer;
+        }
+
+        &:focus {
+
+            outline: none;
+        }
+    }
+
+    .pb_input {
+
+        position: relative;
+        border: none;
+        line-height: 0;
+        padding: 10px 20px 10px 20px; // TODO
+        font-size: 16px; // TODO
+        font-family: 'Roboto', sans-serif; // TODO
+        width: auto;
+
+        &:focus {
+
+            outline: none;
+        }
+    }
+}

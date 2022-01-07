@@ -1,0 +1,6 @@
+# editors can clear caches
+options.clearCache.pages = 1
+options.clearCache.all = 1
+
+# Add save-and-new to all forms
+options.saveDocNew = 1

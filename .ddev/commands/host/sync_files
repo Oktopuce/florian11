@@ -1,0 +1,5 @@
+#!/bin/bash
+## Description: Import files from staging
+## Usage: sync_files
+
+ddev sync_files_from_staging

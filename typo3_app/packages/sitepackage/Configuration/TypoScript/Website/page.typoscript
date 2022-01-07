@@ -1,0 +1,79 @@
+
+page = PAGE
+page.10 = FLUIDTEMPLATE
+page.10 {
+
+    templateName = TEXT
+    templateName {
+        cObject = TEXT
+        cObject {
+            data = pagelayout
+            required = 1
+            case = uppercamelcase
+            split {
+                token = pagets__
+                cObjNum = 1
+                1.current = 1
+            }
+        }
+        ifEmpty = Default
+    }
+    templateRootPaths {
+        0 = EXT:sitepackage/Resources/Private/Templates/Pages/
+        1 = {$pageTemplatePath}
+    }
+    partialRootPaths {
+        0 = EXT:sitepackage/Resources/Private/Partials/Pages/
+        1 = {$pagePartialPath}
+    }
+    layoutRootPaths {
+        0 = EXT:sitepackage/Resources/Private/Layouts/Pages/
+        1 = {$pageLayoutPath}
+    }
+
+    variables {
+
+        homePage = TEXT
+        homePage.value = {$pid.home}
+
+        searchPage = TEXT
+        searchPage.value = {$pid.search}
+
+        currentPage = TEXT
+        currentPage.data = TSFE:id
+    }
+}
+
+page {
+    meta {
+        X-UA-Compatible = IE=edge,chrome=1
+        X-UA-Compatible.httpEquivalent = 1
+        viewport  = width=device-width, initial-scale=1.0
+        description.field = abstract
+        format-detection = telephone=no
+    }
+
+    bodyTag >
+    bodyTagCObject = COA
+    bodyTagCObject {
+        stdWrap.noTrimWrap = |<body |>|
+        10 = CASE
+        10 {
+            key.data = pagelayout
+
+            default = TEXT
+            default.value = class="layout-default pid-{field:uid}"
+            default.insertData = 1
+
+            pagets__404 < .1
+            pagets__404.value = class="layout-404 pid-{field:uid}"
+        }
+    }
+
+    # CSS and JS
+    includeCSS.build = {$assetsPath}/Css/app.css
+
+    # @TODO: this commenting out is temporary, currently no vendor chunk is generated
+    #includeJSFooterlibs.vendor = {$assetsPath}/JavaScript/vendor.js
+    includeJSFooterlibs.app = {$assetsPath}/JavaScript/app.js
+}

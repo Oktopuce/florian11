@@ -1,0 +1,162 @@
+/*
+ * Header styles
+ * -------------
+ *
+ * Defines the style of header area. This area is located an top of the Website
+ * and contains different elements like logo, navigation, ect.
+ *
+ * Features:
+ * – Main and meta bar
+ * – Header stickyness
+ * – Left, center and right section in bars
+ * – Handle of header agility
+ *
+ * © 2020 by Klick&Klar GmbH
+ */
+
+.pb_site {
+
+    .pb_header {
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: check-map($pb_headerBarMain_heightMaximized, 'xs') + check-map($pb_headerBarMeta_heightMaximized, 'xs');
+        background-color: $pb_header_backgroundColor;
+        transition: height $pb_header_animationDuration $pb_easingEaseOutCubic;
+
+        @include media-breakpoint-up(sm) {
+
+            height: check-map($pb_headerBarMain_heightMaximized, 'sm') + check-map($pb_headerBarMeta_heightMaximized, 'sm');
+        }
+
+        @include media-breakpoint-up(md) {
+
+            height: check-map($pb_headerBarMain_heightMaximized, 'md') + check-map($pb_headerBarMeta_heightMaximized, 'md');
+        }
+
+        @include media-breakpoint-up(lg) {
+
+            height: check-map($pb_headerBarMain_heightMaximized, 'lg') + check-map($pb_headerBarMeta_heightMaximized, 'lg');
+        }
+
+        @include media-breakpoint-up(xl) {
+
+            height: check-map($pb_headerBarMain_heightMaximized, 'xl') + check-map($pb_headerBarMeta_heightMaximized, 'xl');
+        }
+
+        &.pb_header_static {
+
+            position: absolute;
+        }
+
+        &.pb_header_sticky {
+
+            position: fixed;
+        }
+
+        .pb_bar {
+
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            grid-template-areas: "left center right";
+            grid-column-gap: 0;
+
+            &.pb_bar-container {
+
+                max-width: $pb_grid_width;
+                margin: 0 auto;
+            }
+
+            .pb_bar-section {
+
+                display: flex;
+
+                &.pb_bar-section-left {
+
+                    grid-column-start: left;
+                    grid-column-end: left;
+                    justify-content: flex-start;
+                }
+
+                &.pb_bar-section-center {
+
+                    grid-column-start: center;
+                    grid-column-end: center;
+                    justify-content: center;
+                }
+
+                &.pb_bar-section-right {
+
+                    grid-column-start: right;
+                    grid-column-end: right;
+                    justify-content: flex-end;
+                }
+            }
+
+            &.pb_bar-main {
+
+                transition: height $pb_header_animationDuration $pb_easingEaseOutCubic;
+                background-color: $pb_headerBarMain_backgroundColor;
+
+                @include all-media-property(height, $pb_headerBarMain_heightMaximized);
+            }
+
+            &.pb_bar-meta {
+
+                transition: height $pb_header_animationDuration $pb_easingEaseOutCubic;
+                background-color: $pb_headerBarMeta_backgroundColor;
+
+                @include all-media-property(height, $pb_headerBarMeta_heightMaximized);
+            }
+        }
+    }
+
+    &.pb_header_minimized {
+
+        .pb_canvas {
+
+            .pb_header {
+
+                &.pb_header_sticky {
+
+                    height: check-map($pb_headerBarMain_heightMinimized, 'xs') + check-map($pb_headerBarMeta_heightMinimized, 'xs');
+
+                    @include media-breakpoint-up(sm) {
+
+                        height: check-map($pb_headerBarMain_heightMinimized, 'sm') + check-map($pb_headerBarMeta_heightMinimized, 'sm');
+                    }
+
+                    @include media-breakpoint-up(md) {
+
+                        height: check-map($pb_headerBarMain_heightMinimized, 'md') + check-map($pb_headerBarMeta_heightMinimized, 'md');
+                    }
+
+                    @include media-breakpoint-up(lg) {
+
+                        height: check-map($pb_headerBarMain_heightMinimized, 'lg') + check-map($pb_headerBarMeta_heightMinimized, 'lg');
+                    }
+
+                    @include media-breakpoint-up(xl) {
+
+                        height: check-map($pb_headerBarMain_heightMinimized, 'xl') + check-map($pb_headerBarMeta_heightMinimized, 'xl');
+                    }
+
+                    .pb_bar-main {
+
+                        background-color: $pb_headerBarMain_backgroundColorMinimized;
+                        @include all-media-property(height, $pb_headerBarMain_heightMinimized);
+                    }
+
+                    .pb_bar-meta {
+
+                        background-color: $pb_headerBarMeta_backgroundColorMinimized;
+                        @include all-media-property(height, $pb_headerBarMeta_heightMinimized);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "kk/florian11",
+  "description": "Test generate SCSS files",
+  "type": "project",
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./packages/*",
+      "options": {
+        "symlink": true
+      }
+    }
+  ],
+  "require": {
+    "helhum/typo3-secure-web": "^0.3",
+    "typo3/cms-about": "^10.4",
+    "typo3/cms-adminpanel": "^10.4",
+    "typo3/cms-belog": "^10.4",
+    "typo3/cms-beuser": "^10.4",
+    "typo3/cms-fluid-styled-content": "^10.4",
+    "typo3/cms-form": "^10.4",
+    "typo3/cms-impexp": "^10.4",
+    "typo3/cms-info": "^10.4",
+    "typo3/cms-lowlevel": "^10.4",
+    "typo3/cms-opendocs": "^10.4",
+    "typo3/cms-recycler": "^10.4",
+    "typo3/cms-redirects": "^10.4",
+    "typo3/cms-reports": "^10.4",
+    "typo3/cms-rte-ckeditor": "^10.4",
+    "typo3/cms-scheduler": "^10.4",
+    "typo3/cms-seo": "^10.4",
+    "typo3/cms-setup": "^10.4",
+    "typo3/cms-tstemplate": "^10.4",
+    "typo3/cms-viewpage": "^10.4",
+    "typo3/cms-filelist": "^10.4",
+    "fluidtypo3/vhs": "^6",
+    "helhum/typo3-console": "^6",
+    "mask/mask": "^7",
+    "kk/sitepackage": "^1.0",
+    "t3monitor/t3monitoring_client": "^9.2"
+  },
+  "minimum-stability": "beta",
+  "extra": {
+    "typo3/cms": {
+      "root-dir": "typo3-secure-web",
+      "web-dir": "../public_html"
+    }
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "./vendor/bin/typo3cms install:generatepackagestates",
+      "./vendor/bin/typo3cms install:fixfolderstructure"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+
+# Enable lazy loading
+styles.content.image.lazyLoading = lazy
+
+lib.content = COA
+lib.content {
+
+    default = COA
+    default {
+
+        main < styles.content.get
+        main.select.where = colPos=1
+
+    }
+}

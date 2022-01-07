@@ -1,0 +1,71 @@
+/*
+ * Sidebar left styles
+ * -------------------
+ *
+ * Defines the style of the left sidebar. This area is located left to the viewport
+ * of the website and contains different elements like logo, navigation, ect.
+ * The bar has three modes: slide-over, slide-in and fix
+ *
+ * Slide-over:
+ * The sidebar moves over the content area
+ *
+ * Slide-in:
+ * The sidebar will displace the content area to the right
+ *
+ * Fix:
+ * The sidebar is fixed visible and displace the content area to the right
+ *
+ * Features:
+ * – Main and meta bar
+ * – Header stickyness
+ * – Left, center and right section in bars
+ * – Handle of header agility
+ *
+ * © 2020 by Klick&Klar GmbH
+ */
+
+.pb_site {
+
+	.pb_sidebar-left {
+
+		background-color: $pb_sidebarLeft_backgroundColor;
+		position: absolute;
+		top: 0;
+		right: auto;
+		bottom: 0;
+		left: -#{check-map($pb_sidebarLeft_widthMinimized, 'xs')};
+		width: check-map($pb_sidebarLeft_widthMinimized, 'xs');
+		min-height: 100vh;
+		z-index: 1;
+		transition: left check-map($pb_sidebarLeft_animationDuration, 'xs') ease-in-out;
+		overflow-y: auto;
+
+		@include media-breakpoint-up(sm) {
+
+			left: -#{check-map($pb_sidebarLeft_widthMinimized, 'sm')};
+			width: check-map($pb_sidebarLeft_widthMinimized, 'sm');
+			transition: left check-map($pb_sidebarLeft_animationDuration, 'sm') ease-in-out;
+		}
+
+		@include media-breakpoint-up(md) {
+
+			left: -#{check-map($pb_sidebarLeft_widthMinimized, 'md')};
+			width: check-map($pb_sidebarLeft_widthMinimized, 'md');
+			transition: left check-map($pb_sidebarLeft_animationDuration, 'md') ease-in-out;
+		}
+
+		@include media-breakpoint-up(lg) {
+
+			left: -#{check-map($pb_sidebarLeft_widthMinimized, 'lg')};
+			width: check-map($pb_sidebarLeft_widthMinimized, 'lg');
+			transition: left check-map($pb_sidebarLeft_animationDuration, 'lg') ease-in-out;
+		}
+
+		@include media-breakpoint-up(xl) {
+
+			left: -#{check-map($pb_sidebarLeft_widthMinimized, 'xl')};
+			width: check-map($pb_sidebarLeft_widthMinimized, 'xl');
+			transition: left check-map($pb_sidebarLeft_animationDuration, 'xl') ease-in-out;
+		}
+	}
+}

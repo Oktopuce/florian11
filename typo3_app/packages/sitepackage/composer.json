@@ -1,0 +1,26 @@
+{
+  "name": "kk/sitepackage",
+  "type": "typo3-cms-extension",
+  "description": "Base extension for project",
+  "authors": [
+    {
+      "name": "Patrick Crausaz",
+      "email": "info@its-crausaz.ch",
+      "homepage": "https://its-crausaz.ch/"
+    }
+  ],
+  "version": "1.0.1",
+  "require": {
+    "typo3/cms-core": "^10.4"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "sitepackage"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "KK\\Sitepackage\\": "Classes/"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+// Durations
+// ---------
+
+$pb_durationShort: 100ms !default;
+$pb_durationMedium: 300ms !default;
+$pb_durationFast: 600ms !default;
+
+// Easing generator => https://easings.net/
+$pb_easingLinear: linear;
+$pb_easingEaseOutCubic: cubic-bezier(0.33, 1, 0.68, 1);

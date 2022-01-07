@@ -1,0 +1,5 @@
+#!/bin/bash
+## Description: Import db from staging
+## Usage: sync_db
+
+ddev sync_db_from_staging

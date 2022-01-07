@@ -1,0 +1,204 @@
+/*
+ * Brand element styles
+ * --------------------
+ *
+ * Defines the style of the brand element. The brand element shows a logo and
+ * optionally a claim
+ *
+ * Features:
+ * – Brand background color
+ * – Brand image
+ * – Claim with positioning
+ *
+ * Todos:
+ * – Claim with positioning
+ *
+ * Generator:
+ * – The generator adds dynamicaly the ID of the element => #pb_element-{{#elemmentId}} on each .pb_element class.
+ *
+ * © 2020 by Klick&Klar GmbH
+ */
+
+// Generator: Add #pb_element-{{#elemmentId}}
+.pb_element {
+
+    &.pb_element_brand {
+
+        background-color: $pb_brand_backgroundColor;
+
+        a {
+
+            figure {
+
+				@include all-media-property(margin-top, $pb_brand_innerSpaceTop);
+				@include all-media-property(margin-right, $pb_brand_innerSpaceRight);
+				@include all-media-property(margin-bottom, $pb_brand_innerSpaceBottom);
+				@include all-media-property(margin-left, $pb_brand_innerSpaceLeft);
+                display: flex;
+
+                /*
+                TODO
+                figcaption {
+
+                    font-size: 16px;
+                    line-height: 18px;
+                    font-family: 'Roboto', sans-serif;
+                    opacity: 1;
+                    height: 18px;
+                    width: 100%;
+                    transition: opacity $pb_durationMedium $pb_easingEaseOutCubic, display $pb_durationMedium $pb_easingEaseOutCubic, margin $pb_durationMedium $pb_easingEaseOutCubic;
+                }*/
+
+                img {
+
+                    @include all-media-property(height, $pb_brand_heightMaximized);
+                    transition: height $pb_durationMedium $pb_easingEaseOutCubic;
+                }
+            }
+        }
+
+        &[class*="pb_element_brand_claim_top-"] {
+
+            figure {
+
+                flex-direction: column-reverse;
+
+                /*
+                TODO
+                figcaption {
+
+                    margin-bottom: 10px;
+                }*/
+            }
+        }
+
+        &[class*="pb_element_brand_claim_right-"] {
+
+            figure {
+
+                flex-direction: row;
+
+                /*
+                TODO
+                figcaption {
+
+                    margin-left: 10px;
+                }*/
+            }
+        }
+
+        &[class*="pb_element_brand_claim_bottom-"] {
+
+            figure {
+
+                flex-direction: column;
+
+                /*
+                TODO
+                figcaption {
+
+                    margin-top: 10px;
+                }*/
+            }
+        }
+
+        &[class*="pb_element_brand_claim_left-"] {
+
+            figure {
+
+                flex-direction: row-reverse;
+
+                /*
+                TODO
+                figcaption {
+
+                    margin-right: 10px;
+                }*/
+            }
+        }
+
+        &[class*="pb_element_brand_claim_top-left"],
+        &[class*="pb_element_brand_claim_bottom-left"] {
+
+            figure {
+
+                align-items: flex-start;
+            }
+        }
+
+        &[class*="pb_element_brand_claim_top-center"],
+        &[class*="pb_element_brand_claim_bottom-center"] {
+
+            figure {
+
+                align-items: center;
+            }
+        }
+
+        &[class*="pb_element_brand_claim_top-right"],
+        &[class*="pb_element_brand_claim_bottom-right"] {
+
+            figure {
+
+                align-items: flex-end;
+            }
+        }
+
+        &[class*="pb_element_brand_claim_left-top"],
+        &[class*="pb_element_brand_claim_right-top"] {
+
+            figure {
+
+                align-items: flex-start;
+            }
+        }
+
+        &[class*="pb_element_brand_claim_left-center"],
+        &[class*="pb_element_brand_claim_right-center"] {
+
+            figure {
+
+                align-items: center;
+            }
+        }
+
+        &[class*="pb_element_brand_claim_left-bottom"],
+        &[class*="pb_element_brand_claim_right-bottom"] {
+
+            figure {
+
+                align-items: flex-end;
+            }
+        }
+    }
+}
+
+.pb_header_minimized {
+
+    // Generator: Add #pb_element-{{#elemmentId}}
+    .pb_element {
+
+        &.pb_element_brand {
+
+            a {
+
+                figure {
+
+                    /*
+                    TODO
+                    figcaption {
+
+                        opacity: 0;
+                        display: none;
+                        margin: 0;
+                    }*/
+
+                    img {
+
+                        @include all-media-property(height, $pb_brand_heightMinimized);
+                    }
+                }
+            }
+        }
+    }
+}

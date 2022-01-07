@@ -1,0 +1,53 @@
+/*
+ * Canvas settings
+ * ---------------
+ *
+ * Defines the style of canvas area. This area wraps the whole viewport of
+ * the Website.
+ *
+ * © 2020 by Klick&Klar GmbH
+ */
+
+$pb_canvas_backgroundColor: $pb_color_gray10 !default;
+$pb_canvas_backgroundImage: none !default;
+$pb_canvas_borderColor: $pb_color_white !default;
+
+$pb_canvas_borderTop: (
+  xs: 5px,
+  sm: 5px,
+  md: 10px,
+  lg: 20px,
+  xl: 20px
+) !default;
+
+$pb_canvas_borderRight: (
+  xs: 5px,
+  sm: 5px,
+  md: 10px,
+  lg: 20px,
+  xl: 20px
+) !default;
+
+$pb_canvas_borderBottom: (
+  xs: 5px,
+  sm: 5px,
+  md: 10px,
+  lg: 20px,
+  xl: 20px
+) !default;
+
+$pb_canvas_borderLeft: (
+  xs: 5px,
+  sm: 5px,
+  md: 10px,
+  lg: 20px,
+  xl: 20px
+) !default;
+
+$pb_canvas_borderRadius: (
+  xs: 5px,
+  sm: 5px,
+  md: 10px,
+  lg: 20px,
+  xl: 20px
+) !default;

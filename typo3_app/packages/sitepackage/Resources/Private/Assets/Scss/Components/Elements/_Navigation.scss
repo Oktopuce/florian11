@@ -1,0 +1,278 @@
+/*
+ * Navigation element styles
+ * -------------------------
+ *
+ * Defines the style of the navigation element. The navigation element 
+ * shows a navigation of a specific page path
+ *
+ * Features:
+ * – Different navigation dropdown types
+ * – Navigation on maximum three levels
+ *
+ * Todos:
+ * – Navigation types dropbar and overviewbar
+ * – Thirth navigation level
+ *
+ * Generator:
+ * – The generator adds dynamicaly the ID of the element => #pb_element-{{#elemmentId}} on each .pb_element class.
+ *
+ * © 2020 by Klick&Klar GmbH
+ */
+
+// Generator: Add #pb_element-{{#elemmentId}}
+.pb_element {
+
+    &.pb_element_navigation {
+
+        ul {
+
+            margin: 0;
+            display: flex;
+
+            li {
+
+                list-style: none;
+                transition: background-color 300ms ease;
+
+                a {
+
+                    display: block;
+                }
+            }
+
+            &.pb_element_navigation_level-1 {
+
+				@include all-media-property(padding-top, $pb_navigation-level1_innerSpaceTop);
+				@include all-media-property(padding-right, $pb_navigation-level1_innerSpaceRight);
+				@include all-media-property(padding-bottom, $pb_navigation-level1_innerSpaceBottom);
+				@include all-media-property(padding-left, $pb_navigation-level1_innerSpaceLeft);
+                background-color: $pb_navigation-level1_backgroundColor;
+
+                & > li {
+
+                    background-color: $pb_navigation-level1-item_backgroundColor;
+
+                    & > a {
+
+                        font-family: $pb_navigation-level1-item-text_family;
+                        color: $pb_navigation-level1-item-text_color;
+                        @include all-media-property(font-weight, $pb_navigation-level1-item-text_weight);
+                        @include all-media-property(font-size, $pb_navigation-level1-item-text_size);
+                        @include all-media-property(line-height, $pb_navigation-level1-item-text_space);         
+                        @include all-media-property(padding-top, $pb_navigation-level1-item_innerSpaceTop);
+						@include all-media-property(padding-right, $pb_navigation-level1-item_innerSpaceRight);
+						@include all-media-property(padding-bottom, $pb_navigation-level1-item_innerSpaceBottom);
+						@include all-media-property(padding-left, $pb_navigation-level1-item_innerSpaceLeft);
+                    }
+
+
+                    &.pb_element_navigation_level-1_icon {
+
+                        & > a {
+
+                            position: relative;
+                            @include all-media-property(padding-top, $pb_navigation-level1-item_innerSpaceTop);
+							@include all-media-property(padding-bottom, $pb_navigation-level1-item_innerSpaceBottom);
+							@include all-media-property(padding-left, $pb_navigation-level1-item_innerSpaceLeft);
+							padding-right: check-map($pb_navigation-level1-item_innerSpaceRight, 'xs') + check-map($pb_navigation-level1-item-icon_width, 'xs');
+
+							@include media-breakpoint-up(sm) {
+					
+								padding-right: check-map($pb_navigation-level1-item_innerSpaceRight, 'sm') + check-map($pb_navigation-level1-item-icon_width, 'sm');
+							}
+					
+							@include media-breakpoint-up(md) {
+					
+								padding-right: check-map($pb_navigation-level1-item_innerSpaceRight, 'md') + check-map($pb_navigation-level1-item-icon_width, 'md');
+							}
+					
+							@include media-breakpoint-up(lg) {
+					
+								padding-right: check-map($pb_navigation-level1-item_innerSpaceRight, 'lg') + check-map($pb_navigation-level1-item-icon_width, 'lg');
+							}
+					
+							@include media-breakpoint-up(xl) {
+					
+								padding-right: check-map($pb_navigation-level1-item_innerSpaceRight, 'xl') + check-map($pb_navigation-level1-item-icon_width, 'xl');
+							}
+		 
+                            &::after {
+
+                                content: $pb_navigation-level1-item-icon;
+                                font-family: $pb_navigation-level1-item-icon_family !important;
+                                color: $pb_navigation-level1-item-icon_color;
+                                speak: never;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-variant: normal;
+                                text-transform: none;
+                                line-height: 1;
+                                -webkit-font-smoothing: antialiased;
+                                -moz-osx-font-smoothing: grayscale;
+                                position: absolute;
+                                top: 0;
+                                bottom: 0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                
+                                @include all-media-property(right, $pb_navigation-level1-item-icon_spaceRight);
+                                @include all-media-property(font-size, $pb_navigation-level1-item-icon_size);
+                            }
+                        }
+                    }
+
+                    & + li {
+
+                        @include all-media-property(margin-left, $pb_navigation-level1-item_spaceBetweenItems);
+                    }
+
+                    &:hover {
+
+                        background-color: $pb_navigation-level1-item_hover_backgroundColor;
+
+                        a {
+
+                            color: $pb_navigation-level1-item-text_hover_color;
+                        }
+
+                        ul {
+
+                            &.pb_element_navigation_level-2 {
+
+                                opacity: 1;
+                                visibility: visible;
+                                transition: opacity check-map($pb_navigation-level1-item_hover_animationDuration, 'xs') $pb_navigation-level1-item_hover_animationEasing 1ms, visibility 1ms linear;
+                                
+                                @include media-breakpoint-up(sm) {
+					
+									transition: opacity check-map($pb_navigation-level1-item_hover_animationDuration, 'sm') $pb_navigation-level1-item_hover_animationEasing 1ms, visibility 1ms linear;
+								}
+						
+								@include media-breakpoint-up(md) {
+						
+									transition: opacity check-map($pb_navigation-level1-item_hover_animationDuration, 'md') $pb_navigation-level1-item_hover_animationEasing 1ms, visibility 1ms linear;
+								}
+						
+								@include media-breakpoint-up(lg) {
+						
+									transition: opacity check-map($pb_navigation-level1-item_hover_animationDuration, 'lg') $pb_navigation-level1-item_hover_animationEasing 1ms, visibility 1ms linear;
+								}
+						
+								@include media-breakpoint-up(xl) {
+						
+									transition: opacity check-map($pb_navigation-level1-item_hover_animationDuration, 'xl') $pb_navigation-level1-item_hover_animationEasing 1ms, visibility 1ms linear;
+								}
+                            }
+                        }
+                    }
+
+                    &.active {
+
+                        background-color: $pb_navigation-level1-item_active_backgroundColor;
+
+                        a {
+
+                            color: $pb_navigation-level1-item-text_active_color;
+                        }
+                    }
+                }
+            }
+
+            &.pb_element_navigation_level-2 {
+
+                position: absolute;
+                z-index: 1;
+                visibility: hidden;
+                opacity: 0;
+                flex-direction: column;
+                transition: opacity 300ms ease, visibility 1ms linear 300ms;
+                background-color: $pb_navigation-level2_backgroundColor;
+                
+                @include all-media-property(max-width, $pb_navigation-level2_maxWidth);
+                @include all-media-property(padding-top, $pb_navigation-level2_innerSpaceTop);
+				@include all-media-property(padding-right, $pb_navigation-level2_innerSpaceRight);
+				@include all-media-property(padding-bottom, $pb_navigation-level2_innerSpaceBottom);
+				@include all-media-property(padding-left, $pb_navigation-level2_innerSpaceLeft);
+
+                & > li {
+
+                    background-color: $pb_navigation-level2-item_backgroundColor;                    
+                    transition: background-color check-map($pb_navigation-level2-item_hover_animationDuration, 'xs') $pb_navigation-level2-item_hover_animationEasing 1ms, visibility 1ms linear;
+                                
+                    @include media-breakpoint-up(sm) {
+		
+						transition: background-color check-map($pb_navigation-level2-item_hover_animationDuration, 'sm') $pb_navigation-level2-item_hover_animationEasing 1ms, visibility 1ms linear;
+					}
+			
+					@include media-breakpoint-up(md) {
+			
+						transition: background-color check-map($pb_navigation-level2-item_hover_animationDuration, 'md') $pb_navigation-level2-item_hover_animationEasing 1ms, visibility 1ms linear;
+					}
+			
+					@include media-breakpoint-up(lg) {
+			
+						transition: background-color check-map($pb_navigation-level2-item_hover_animationDuration, 'lg') $pb_navigation-level2-item_hover_animationEasing 1ms, visibility 1ms linear;
+					}
+			
+					@include media-breakpoint-up(xl) {
+			
+						transition: background-color check-map($pb_navigation-level2-item_hover_animationDuration, 'xl') $pb_navigation-level2-item_hover_animationEasing 1ms, visibility 1ms linear;
+					}
+
+                    & > a {
+
+                        font-family: $pb_navigation-level2-item-text_family;
+                        font-weight: $pb_navigation-level2-item-text_weight;
+                        font-size: $pb_navigation-level2-item-text_size;
+                        line-height: $pb_navigation-level2-item-text_space;
+                        color: $pb_navigation-level2-item-text_color;
+                        
+                        @include all-media-property(padding-top, $pb_navigation-level2-item_innerSpaceTop);
+						@include all-media-property(padding-right, $pb_navigation-level2-item_innerSpaceRight);
+						@include all-media-property(padding-bottom, $pb_navigation-level2-item_innerSpaceBottom);
+						@include all-media-property(padding-left, $pb_navigation-level2-item_innerSpaceLeft);
+                    }
+
+                    & + li {
+
+                        margin-left: 0;
+                        margin-top: $pb_navigation-level2-item_spaceBetweenItems;
+                    }
+
+                    &:hover {
+
+                        background-color: $pb_navigation-level2-item_hover_backgroundColor;
+
+                        a {
+
+                            color: $pb_navigation-level2-item-text_hover_color;
+                        }
+                    }
+
+                    &.active {
+
+                        background-color: $pb_navigation-level2-item_active_backgroundColor;
+
+                        a {
+
+                            color: $pb_navigation-level2-item-text_active_color;
+                        }
+                    }
+                }
+            }
+            
+            // TODO
+            &.pb_element_navigation-type-dropbar {
+	            
+	            
+            }
+            
+            //TODO
+            &.pb_element_navigation-type-overviewbar {
+	            
+	            
+            }
+        }
+    }
+}

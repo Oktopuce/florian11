@@ -1,0 +1,94 @@
+/*
+Static Mixins and functions
+*/
+@import "Mixins/Utility";
+
+/*
+Static Configurations (just variables)
+*/
+@import 'Configuration/App.scss';
+@import 'Configuration/Colors.scss';
+@import 'Configuration/Typography.scss';
+@import 'Configuration/Animations.scss';
+@import 'Configuration/Breakpoints.scss';
+@import 'Configuration/Grid.scss';
+@import "Mixins/Breakpoints";
+@import 'Configuration/Structure/Site.scss';
+@import 'Configuration/Structure/SidebarLeft.scss';
+@import 'Configuration/Structure/SidebarRight.scss';
+@import 'Configuration/Structure/Canvas.scss';
+@import 'Configuration/Structure/Header.scss';
+@import 'Configuration/Elements/Element.scss';
+
+// Temporaty overrides
+$pb_header_backgroundColor: $pb_color_gray40;
+$pb_headerBarMeta_backgroundColor: $pb_color_gray50;
+$pb_headerBarMain_backgroundColor: $pb_color_gray60;
+
+/*
+ Static Components
+*/
+@import 'Components/Basis/Links.scss';
+@import 'Components/Basis/Fonts.scss';
+@import 'Components/Form/Form.scss';
+@import 'Components/Structure/Site.scss';
+@import 'Components/Structure/SidebarLeft.scss';
+@import 'Components/Structure/SidebarRight.scss';
+@import 'Components/Structure/Canvas.scss';
+@import 'Components/Structure/Header.scss';
+@import 'Components/Elements/Element.scss';
+@import 'Components/Elements/BurgerNavigation.scss';
+@import 'Components/Elements/LanguageNavigation.scss';
+@import 'Components/Elements/MetaNavigation.scss';
+@import 'Components/Elements/Search.scss';
+@import 'Components/Elements/Shop.scss';
+
+/*
+ import all generated SCSS files
+*/
+@import "Components/GeneratedElements/*";
+
+// Temporaty styles
+.center {
+
+  text-align: center;
+}
+
+button,
+select {
+
+  width: 200px;
+  margin: 10px auto;
+}
+
+*,
+*::before,
+*::after {
+
+  box-sizing: inherit;
+}
+
+html {
+
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar;
+}
+
+body {
+
+  margin: 0;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+.pb_canvas,
+.pb_sidebar-left,
+.pb_sidebar-right {
+
+  padding: 20px 50px;
+}
+
+.pb_header p {
+
+  margin: 0;
+}

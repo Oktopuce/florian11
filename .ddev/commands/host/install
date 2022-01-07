@@ -1,0 +1,23 @@
+#!/bin/bash
+## Description: Initial configuration
+## Usage: install
+
+# color
+GREEN='\033[0;32m'
+NC='\033[0m\n' # set no color and line end
+
+printf "${GREEN}Loading local SSH keys${NC}"
+ddev auth ssh
+
+printf "${GREEN}Syncing configuration${NC}"
+ddev sync_initial_configuration
+
+printf "${GREEN}Importing staging database${NC}"
+ddev sync_db_from_staging
+
+printf "${GREEN}Running composer install${NC}"
+ddev composer install -d typo3_app
+
+ddev sync_files_from_staging
+
+printf "${GREEN}Done${NC}"

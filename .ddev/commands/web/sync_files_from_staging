@@ -1,0 +1,15 @@
+#!/bin/bash
+## Description: Synchronize configuration files
+## Usage: sync_files_from_staging
+# color
+GREEN='\033[0;32m'
+NC='\033[0m\n' # set no color and line end
+
+# download file storage "fileadmin" & "public" from staging server
+printf "${GREEN}Sync fileadmin folder...${NC}"
+rsync -zra \
+    --delete \
+    ${SSH_USER}@${SSH_HOST}:~/projects/florian11//shared_assets/staging/fileadmin \
+    typo3_app/typo3-secure-web;
+
+printf "${GREEN}Done${NC}"

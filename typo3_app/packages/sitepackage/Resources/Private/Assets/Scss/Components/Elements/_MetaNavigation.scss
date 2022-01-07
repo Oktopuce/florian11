@@ -1,0 +1,182 @@
+// Main Navigation
+// -------------------
+
+// TEMP CONFIG
+$temp_metaNavigation_backgroundColor: purple !default;
+
+$temp_metaNavigation-level1_innerSpaceTop: 0 !default;
+$temp_metaNavigation-level1_innerSpaceRight: 0 !default;
+$temp_metaNavigation-level1_innerSpaceBottom: 0 !default;
+$temp_metaNavigation-level1_innerSpaceLeft: 0 !default;
+$temp_metaNavigation-level1_backgroundColor: violet !default;
+
+$temp_metaNavigation-level1-item_backgroundColor: yellow !default;
+$temp_metaNavigation-level1-item_spaceBetweenItems: 10px !default;
+$temp_metaNavigation-level1-item_innerSpaceTop: 2px !default;
+$temp_metaNavigation-level1-item_innerSpaceRight: 10px !default;
+$temp_metaNavigation-level1-item_innerSpaceBottom: 2px !default;
+$temp_metaNavigation-level1-item_innerSpaceLeft: 10px !default;
+$temp_metaNavigation-level1-item_textFamily: 'Roboto', sans-serif !default;
+$temp_metaNavigation-level1-item_textWeight: normal !default;
+$temp_metaNavigation-level1-item_textSpace: 16px !default;
+$temp_metaNavigation-level1-item_textSize: 14px !default;
+$temp_metaNavigation-level1-item_textColor: #000000 !default;
+$temp_metaNavigation-level1-item_hover_backgroundColor: green !default;
+$temp_metaNavigation-level1-item_hover_textColor: #888888 !default;
+$temp_metaNavigation-level1-item_active_backgroundColor: red !default;
+$temp_metaNavigation-level1-item_active_textColor: blue !default;
+
+$temp_metaNavigation-level2_innerSpaceTop: 0 !default;
+$temp_metaNavigation-level2_innerSpaceRight: 0 !default;
+$temp_metaNavigation-level2_innerSpaceBottom: 0 !default;
+$temp_metaNavigation-level2_innerSpaceLeft: 0 !default;
+$temp_metaNavigation-level2-spaceBetweenLevels: 1px !default;
+$temp_metaNavigation-level2_backgroundColor: #424242 !default;
+$temp_metaNavigation-level2_maxWidth: 200px !default;
+$temp_metaNavigation-level2-item_backgroundColor: green !default;
+$temp_metaNavigation-level2-item_spaceBetweenItems: 1px !default;
+$temp_metaNavigation-level2-item_innerSpaceTop: 5px !default;
+$temp_metaNavigation-level2-item_innerSpaceRight: 20px !default;
+$temp_metaNavigation-level2-item_innerSpaceBottom: 5px !default;
+$temp_metaNavigation-level2-item_innerSpaceLeft: 20px !default;
+$temp_metaNavigation-level2-item_textFamily: 'Roboto', sans-serif !default;
+$temp_metaNavigation-level2-item_textWeight: normal !default;
+$temp_metaNavigation-level2-item_textSpace: 14px !default;
+$temp_metaNavigation-level2-item_textSize: 12px !default;
+$temp_metaNavigation-level2-item_textColor: #000000;
+$temp_metaNavigation-level2-item_hover_backgroundColor: azure !default;
+$temp_metaNavigation-level2-item_hover_textColor: blueviolet !default;
+$temp_metaNavigation-level2-item_active_backgroundColor: coral !default;
+$temp_metaNavigation-level2-item_active_textColor: brown !default;
+
+.pb_element {
+
+    &.pb_element_meta-navigation {
+
+        background-color: $temp_metaNavigation_backgroundColor;
+
+        ul {
+
+            margin: 0;
+            display: flex;
+
+
+            &.pb_element_main-navigation_level-1 {
+
+                padding: $temp_metaNavigation-level1_innerSpaceTop $temp_metaNavigation-level1_innerSpaceRight $temp_metaNavigation-level1_innerSpaceBottom $temp_metaNavigation-level1_innerSpaceLeft;
+                background-color: $temp_metaNavigation-level1_backgroundColor;
+
+                li {
+
+                    list-style: none;
+                    background-color: $temp_metaNavigation-level1-item_backgroundColor;
+                    transition: background-color 300ms ease;
+
+                    a {
+
+                        display: block;
+                        font-family: $temp_metaNavigation-level1-item_textFamily;
+                        font-weight: $temp_metaNavigation-level1-item_textWeight;
+                        font-size: $temp_metaNavigation-level1-item_textSize;
+                        line-height: $temp_metaNavigation-level1-item_textSpace;
+                        color: $temp_metaNavigation-level1-item_textColor;
+                        padding: $temp_metaNavigation-level1-item_innerSpaceTop $temp_metaNavigation-level1-item_innerSpaceRight $temp_metaNavigation-level1-item_innerSpaceBottom $temp_metaNavigation-level1-item_innerSpaceLeft;
+                    }
+
+                    ul {
+
+                        &.pb_element_main-navigation_level-2 {
+
+                            position: absolute;
+                            z-index: 1;
+                            visibility: hidden;
+                            opacity: 0;
+                            padding: $temp_metaNavigation-level2-spaceBetweenLevels + $temp_metaNavigation-level2_innerSpaceTop $temp_metaNavigation-level2_innerSpaceRight $temp_metaNavigation-level2_innerSpaceBottom $temp_metaNavigation-level2_innerSpaceLeft;
+                            flex-direction: column;
+                            transition: opacity 300ms ease, visibility 1ms linear 300ms;
+                            background-color: $temp_metaNavigation-level2_backgroundColor;
+                            max-width: $temp_metaNavigation-level2_maxWidth;
+
+                            li {
+
+                                background-color: $temp_metaNavigation-level2-item_backgroundColor;
+                                transition: background-color 300ms ease;
+
+                                a {
+
+                                    font-family: $temp_metaNavigation-level2-item_textFamily;
+                                    font-weight: $temp_metaNavigation-level2-item_textWeight;
+                                    font-size: $temp_metaNavigation-level2-item_textSize;
+                                    line-height: $temp_metaNavigation-level2-item_textSpace;
+                                    color: $temp_metaNavigation-level2-item_textColor;
+                                    padding: $temp_metaNavigation-level2-item_innerSpaceTop $temp_metaNavigation-level2-item_innerSpaceRight $temp_metaNavigation-level2-item_innerSpaceBottom $temp_metaNavigation-level2-item_innerSpaceLeft;
+                                }
+
+                                & + li {
+
+                                    margin-left: 0;
+                                    margin-top: $temp_metaNavigation-level2-item_spaceBetweenItems;
+                                }
+
+                                &:hover {
+
+                                    background-color: $temp_metaNavigation-level2-item_hover_backgroundColor;
+
+                                    a {
+
+                                        color: $temp_metaNavigation-level2-item_hover_textColor;
+                                    }
+                                }
+
+                                &.active {
+
+                                    background-color: $temp_metaNavigation-level2-item_active_backgroundColor;
+
+                                    a {
+
+                                        color: $temp_metaNavigation-level2-item_active_textColor;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    & + li {
+
+                        margin-left: $temp_metaNavigation-level1-item_spaceBetweenItems;
+                    }
+
+                    &:hover {
+
+                        background-color: $temp_metaNavigation-level1-item_hover_backgroundColor;
+
+                        a {
+
+                            color: $temp_metaNavigation-level1-item_hover_textColor;
+                        }
+
+                        ul {
+
+                            &.pb_element_main-navigation_level-2 {
+
+                                opacity: 1;
+                                visibility: visible;
+                                transition: opacity 300ms ease 1ms, visibility 1ms linear;
+                            }
+                        }
+                    }
+
+                    &.active {
+
+                        background-color: $temp_metaNavigation-level1-item_active_backgroundColor;
+
+                        a {
+
+                            color: $temp_metaNavigation-level1-item_active_textColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

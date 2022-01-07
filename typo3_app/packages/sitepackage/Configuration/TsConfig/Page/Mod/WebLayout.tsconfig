@@ -1,0 +1,6 @@
+mod.web_layout{
+
+   # multi-lang:
+   # content-record-bindung im backend einschalten zwischen sprachen
+   defLangBinding = 1
+}

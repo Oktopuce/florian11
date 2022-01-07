@@ -1,0 +1,18 @@
+
+# Global Extensions
+# ---------------------------------------
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
+
+# Local Extensions
+# ---------------------------------------
+
+
+# Website; Libs and Data Processors
+# ---------------------------------------
+@import 'EXT:sitepackage/Configuration/TypoScript/Website/DataProcessors/'
+@import 'EXT:sitepackage/Configuration/TypoScript/Website/Libs/'
+
+# Main config
+# ---------------------------------------
+@import 'EXT:sitepackage/Configuration/TypoScript/Website/config.typoscript'
+@import 'EXT:sitepackage/Configuration/TypoScript/Website/page.typoscript'

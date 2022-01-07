@@ -1,0 +1,55 @@
+
+/typo3_app/vendor
+/typo3_app/var
+/typo3_app/typo3-secure-web/fileadmin
+/typo3_app/typo3-secure-web/private
+/typo3_app/typo3-secure-web/public
+/typo3_app/typo3-secure-web/typo3
+/typo3_app/typo3-secure-web/typo3temp
+/typo3_app/typo3-secure-web/index.php
+/typo3_app/typo3-secure-web/typo3conf/ext
+/typo3_app/typo3-secure-web/typo3conf/l10n
+/typo3_app/typo3-secure-web/typo3conf/ENABLE_INSTALL_TOOL
+/typo3_app/typo3-secure-web/typo3conf/ContextConfiguration.php
+
+/public_html/fileadmin
+/public_html/private
+/public_html/public
+/public_html/typo3/
+/public_html/typo3conf/
+/public_html/typo3temp/
+/public_html/index.php
+
+
+# ----- fronte end stuff -------
+# Third party modules
+node_modules
+bower_components
+
+# Test files
+test
+tests
+temp
+
+# Cache files
+*.gulp
+.sass-cache
+.tx_imageautoresize
+
+# Editor configs and various front end files
+*.sublime-project
+*.sublime-workspace
+*.lnk
+*.ftpconfig
+sftp-config.json
+codekit-config.json
+config.codekit
+.sync-config.cson
+prepros.cfg
+config.js
+.DS_Store
+.idea
+.vscode/*
+.ddev/dumps
+prepros-6.config
+package-lock.json

@@ -1,0 +1,14 @@
+
+pageTemplatePath = EXT:sitepackage/Resources/Private/Templates
+pageLayoutPath = EXT:sitepackage/Resources/Private/Layouts
+pagePartialPath = EXT:sitepackage/Resources/Private/Partials
+
+assetsPath = EXT:sitepackage/Resources/Public/Build
+
+pid {
+    home = 1
+    search =
+    footer =
+    footerNavigation =
+    sitemap =
+}

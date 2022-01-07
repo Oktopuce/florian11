@@ -1,0 +1,92 @@
+// Search
+// ------
+
+// TEMP CONFIG
+$temp_search_input_backgroundColor: #FFFFFF !default;
+$temp_search_input_width: auto !default;
+$temp_search_input_textFamily: 'Roboto', sans-serif !default;
+$temp_search_input_textSize: 16px !default;
+$temp_search_input_textWeight: normal !default;
+$temp_search_input_textColor: #333333 !default;
+$temp_search_input_innerSpaceTop: 10px !default;
+$temp_search_input_innerSpaceRight: 20px !default;
+$temp_search_input_innerSpaceBottom: 10px !default;
+$temp_search_input_innerSpaceLeft: 20px !default;
+$temp_search_input_focus_textColor: #000000 !default;
+$temp_search_input_focus_backgroundColor: #FFFFFF !default;
+$temp_search_button_innerSpaceTop: 10px !default;
+$temp_search_button_innerSpaceRight: 10px !default;
+$temp_search_button_innerSpaceBottom: 10px !default;
+$temp_search_button_innerSpaceLeft: 10px !default;
+$temp_search_button_textFamily: 'Roboto', sans-serif !default;
+$temp_search_button_textSize: 16px !default;
+$temp_search_button_textWeight: normal !default;
+$temp_search_button_textColor: #333333 !default;
+$temp_search_button_backgroundColor: green !default;
+$temp_search_button_icon: '\f002' !default;
+$temp_search_button_icon_textFamily: 'font-awesome' !default;
+$temp_search_button_icon_textSize: 24px !default;
+$temp_search_button_icon_textColor: #FFFFFF !default;
+$temp_search_button_icon_width: 50px !default;
+
+
+.pb_element {
+
+    &.pb_element_search {
+
+        .pb_button {
+
+            padding: $temp_search_button_innerSpaceTop $temp_search_button_innerSpaceRight $temp_search_button_innerSpaceBottom $temp_search_button_innerSpaceLeft;
+            margin: 0;
+            font-size: $temp_search_button_textSize;
+            font-family: $temp_search_button_textFamily;
+            font-weight: $temp_search_button_textWeight;
+            color: $temp_search_button_textColor;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $temp_search_button_backgroundColor;
+
+            &.pb_icon-submit {
+
+                padding: 0;
+                width: $temp_search_button_icon_width;
+                font-size: 0;
+
+                &::after {
+
+                    content: $temp_search_button_icon;
+                    font-family: $temp_search_button_icon_textFamily !important;
+                    font-size: $temp_search_button_icon_textSize;
+                    color: $temp_search_button_icon_textColor;
+                    speak: never;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    line-height: 1;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                }
+            }
+        }
+
+        .pb_input {
+
+            font-size: $temp_search_input_textSize;
+            font-weight: $temp_search_input_textWeight;
+            font-family: $temp_search_input_textFamily;
+            color: $temp_search_input_textColor;
+            width: $temp_search_input_width;
+            background-color: $temp_search_input_backgroundColor;
+            padding: $temp_search_input_innerSpaceTop $temp_search_input_innerSpaceRight $temp_search_input_innerSpaceBottom $temp_search_input_innerSpaceLeft;
+
+            &:focus {
+
+                color: $temp_search_input_focus_textColor;
+                background-color: $temp_search_input_focus_backgroundColor;
+            }
+        }
+    }
+}

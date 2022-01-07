@@ -1,0 +1,404 @@
+/*
+ * Site styles
+ * -----------
+ *
+ * Defines the style of site area. This area wraps the whole website.
+ *
+ * Features:
+ * – Website main background color
+ * – Handle of sidebars
+ * – Handle of header agility
+ *
+ * © 2020 by Klick&Klar GmbH
+ */
+
+.pb_site {
+
+	background-color: $pb_canvas_borderColor;
+	min-height: 100vh;
+	position: relative;
+	overscroll-behavior: none;
+
+	&.pb_sidebar-left_slidein {
+
+		transform: translateX(0);
+		transition: transform check-map($pb_sidebarLeft_animationDuration, 'xs') ease-in-out;
+
+		@include media-breakpoint-up(sm) {
+
+			transition: transform check-map($pb_sidebarLeft_animationDuration, 'sm') ease-in-out;
+		}
+
+		@include media-breakpoint-up(md) {
+
+			transition: transform check-map($pb_sidebarLeft_animationDuration, 'md') ease-in-out;
+		}
+
+		@include media-breakpoint-up(lg) {
+
+			transition: transform check-map($pb_sidebarLeft_animationDuration, 'lg') ease-in-out;
+		}
+
+		@include media-breakpoint-up(xl) {
+
+			transition: transform check-map($pb_sidebarLeft_animationDuration, 'xl') ease-in-out;
+		}
+
+		&.pb_sidebar-left_open {
+
+			transform: translateX(check-map($pb_sidebarLeft_widthMinimized, 'xs'));
+
+			@include media-breakpoint-up(sm) {
+
+				transform: translateX(check-map($pb_sidebarLeft_widthMinimized, 'sm'));
+			}
+
+			@include media-breakpoint-up(md) {
+
+				transform: translateX(check-map($pb_sidebarLeft_widthMinimized, 'md'));
+			}
+
+			@include media-breakpoint-up(lg) {
+
+				transform: translateX(check-map($pb_sidebarLeft_widthMinimized, 'lg'));
+			}
+
+			@include media-breakpoint-up(xl) {
+
+				transform: translateX(check-map($pb_sidebarLeft_widthMinimized, 'xl'));
+			}
+		}
+	}
+
+	&.pb_sidebar-right_slidein {
+
+		transition: transform check-map($pb_sidebarRight_animationDuration, 'xs') ease-in-out;
+
+		@include media-breakpoint-up(sm) {
+
+			transition: transform check-map($pb_sidebarRight_animationDuration, 'sm') ease-in-out;
+		}
+
+		@include media-breakpoint-up(md) {
+
+			transition: transform check-map($pb_sidebarRight_animationDuration, 'md') ease-in-out;
+		}
+
+		@include media-breakpoint-up(lg) {
+
+			transition: transform check-map($pb_sidebarRight_animationDuration, 'lg') ease-in-out;
+		}
+
+		@include media-breakpoint-up(xl) {
+
+			transition: transform check-map($pb_sidebarRight_animationDuration, 'xl') ease-in-out;
+		}
+
+		&.pb_sidebar-right_open {
+
+			transform: translateX(-#{check-map($pb_sidebarLeft_widthMinimized, 'xs')});
+
+			@include media-breakpoint-up(sm) {
+
+				transform: translateX(-#{check-map($pb_sidebarLeft_widthMinimized, 'sm')});
+			}
+
+			@include media-breakpoint-up(md) {
+
+				transform: translateX(-#{check-map($pb_sidebarLeft_widthMinimized, 'md')});
+			}
+
+			@include media-breakpoint-up(lg) {
+
+				transform: translateX(-#{check-map($pb_sidebarLeft_widthMinimized, 'lg')});
+			}
+
+			@include media-breakpoint-up(xl) {
+
+				transform: translateX(-#{check-map($pb_sidebarLeft_widthMinimized, 'xl')});
+			}
+		}
+	}
+
+	&.pb_sidebar-left_slideover {
+
+		transition: transform check-map($pb_sidebarLeft_animationDuration, 'xs') ease-in-out;
+
+		@include media-breakpoint-up(sm) {
+
+			transition: transform check-map($pb_sidebarLeft_animationDuration, 'sm') ease-in-out;
+		}
+
+		@include media-breakpoint-up(md) {
+
+			transition: transform check-map($pb_sidebarLeft_animationDuration, 'md') ease-in-out;
+		}
+
+		@include media-breakpoint-up(lg) {
+
+			transition: transform check-map($pb_sidebarLeft_animationDuration, 'lg') ease-in-out;
+		}
+
+		@include media-breakpoint-up(xl) {
+
+			transition: transform check-map($pb_sidebarLeft_animationDuration, 'xl') ease-in-out;
+		}
+
+		&.pb_sidebar-left_open {
+
+			.pb_sidebar-left {
+
+				left: 0;
+			}
+		}
+	}
+
+	&.pb_sidebar-right_slideover {
+
+		transition: transform check-map($pb_sidebarRight_animationDuration, 'xs') ease-in-out;
+
+		@include media-breakpoint-up(sm) {
+
+			transition: transform check-map($pb_sidebarRight_animationDuration, 'sm') ease-in-out;
+		}
+
+		@include media-breakpoint-up(md) {
+
+			transition: transform check-map($pb_sidebarRight_animationDuration, 'md') ease-in-out;
+		}
+
+		@include media-breakpoint-up(lg) {
+
+			transition: transform check-map($pb_sidebarRight_animationDuration, 'lg') ease-in-out;
+		}
+
+		@include media-breakpoint-up(xl) {
+
+			transition: transform check-map($pb_sidebarRight_animationDuration, 'xl') ease-in-out;
+		}
+
+		&.pb_sidebar-right_open {
+
+			.pb_sidebar-right {
+
+				right: 0;
+			}
+		}
+	}
+
+	&.pb_sidebar-left_fix {
+
+		.pb_sidebar-left {
+
+			left: 0;
+			transition: width check-map($pb_sidebarLeft_animationDuration, 'xs') ease-in-out;
+
+			@include media-breakpoint-up(sm) {
+
+				transition: width check-map($pb_sidebarLeft_animationDuration, 'sm') ease-in-out;
+			}
+
+			@include media-breakpoint-up(md) {
+
+				transition: width check-map($pb_sidebarLeft_animationDuration, 'md') ease-in-out;
+			}
+
+			@include media-breakpoint-up(lg) {
+
+				transition: width check-map($pb_sidebarLeft_animationDuration, 'lg') ease-in-out;
+			}
+
+			@include media-breakpoint-up(xl) {
+
+				transition: width check-map($pb_sidebarLeft_animationDuration, 'xl') ease-in-out;
+			}
+
+			@include all-media-property(width, $pb_sidebarLeft_widthMinimized);
+		}
+
+		.pb_canvas {
+
+			left: check-map($pb_sidebarLeft_widthMinimized, 'xs') + check-map($pb_canvas_borderLeft, 'xs');
+			transition: left check-map($pb_sidebarLeft_animationDuration, 'xs') ease-in-out, right check-map($pb_sidebarLeft_animationDuration, 'xs') ease-in-out;
+
+			@include media-breakpoint-up(sm) {
+
+				left: check-map($pb_sidebarLeft_widthMinimized, 'sm') + check-map($pb_canvas_borderLeft, 'sm');
+				transition: left check-map($pb_sidebarLeft_animationDuration, 'sm') ease-in-out, right check-map($pb_sidebarLeft_animationDuration, 'sm') ease-in-out;
+			}
+
+			@include media-breakpoint-up(md) {
+
+				left: check-map($pb_sidebarLeft_widthMinimized, 'md') + check-map($pb_canvas_borderLeft, 'md');
+				transition: left check-map($pb_sidebarLeft_animationDuration, 'md') ease-in-out, right check-map($pb_sidebarLeft_animationDuration, 'md') ease-in-out;
+			}
+
+			@include media-breakpoint-up(lg) {
+
+				left: check-map($pb_sidebarLeft_widthMinimized, 'lg') + check-map($pb_canvas_borderLeft, 'lg');
+				transition: left check-map($pb_sidebarLeft_animationDuration, 'lg') ease-in-out, right check-map($pb_sidebarLeft_animationDuration, 'lg') ease-in-out;
+			}
+
+			@include media-breakpoint-up(xl) {
+
+				left: check-map($pb_sidebarLeft_widthMinimized, 'xl') + check-map($pb_canvas_borderLeft, 'xl');
+				transition: left check-map($pb_sidebarLeft_animationDuration, 'xl') ease-in-out, right check-map($pb_sidebarLeft_animationDuration, 'xl') ease-in-out;
+			}
+		}
+
+		&.pb_sidebar-left_maximized {
+
+			.pb_sidebar-left {
+
+				@include all-media-property(width, $pb_sidebarLeft_widthMaximized);
+			}
+
+			.pb_canvas {
+
+				left: check-map($pb_sidebarLeft_widthMaximized, 'xs') + check-map($pb_canvas_borderLeft, 'xs');
+
+				@include media-breakpoint-up(sm) {
+
+					left: check-map($pb_sidebarLeft_widthMaximized, 'sm') + check-map($pb_canvas_borderLeft, 'sm');
+				}
+
+				@include media-breakpoint-up(md) {
+
+					left: check-map($pb_sidebarLeft_widthMaximized, 'md') + check-map($pb_canvas_borderLeft, 'md');
+				}
+
+				@include media-breakpoint-up(lg) {
+
+					left: check-map($pb_sidebarLeft_widthMaximized, 'lg') + check-map($pb_canvas_borderLeft, 'lg');
+				}
+
+				@include media-breakpoint-up(xl) {
+
+					left: check-map($pb_sidebarLeft_widthMaximized, 'xl') + check-map($pb_canvas_borderLeft, 'xl');
+				}
+			}
+		}
+	}
+
+	&.pb_sidebar-right_fix {
+
+		.pb_sidebar-right {
+
+			right: 0;
+			transition: width check-map($pb_sidebarRight_animationDuration, 'xs') ease-in-out;
+
+			@include media-breakpoint-up(sm) {
+
+				transition: width check-map($pb_sidebarRight_animationDuration, 'sm') ease-in-out;
+			}
+
+			@include media-breakpoint-up(md) {
+
+				transition: width check-map($pb_sidebarRight_animationDuration, 'md') ease-in-out;
+			}
+
+			@include media-breakpoint-up(lg) {
+
+				transition: width check-map($pb_sidebarRight_animationDuration, 'lg') ease-in-out;
+			}
+
+			@include media-breakpoint-up(xl) {
+
+				transition: width check-map($pb_sidebarRight_animationDuration, 'xl') ease-in-out;
+			}
+
+			@include all-media-property(width, $pb_sidebarRight_widthMinimized);
+		}
+
+		.pb_canvas {
+
+			right: check-map($pb_sidebarRight_widthMinimized, 'xs') + check-map($pb_canvas_borderRight, 'xs');
+			transition: right check-map($pb_sidebarRight_animationDuration, 'xs') ease-in-out, left check-map($pb_sidebarRight_animationDuration, 'xs') ease-in-out;
+
+			@include media-breakpoint-up(sm) {
+
+				right: check-map($pb_sidebarRight_widthMinimized, 'sm') + check-map($pb_canvas_borderRight, 'sm');
+				transition: right check-map($pb_sidebarRight_animationDuration, 'sm') ease-in-out, left check-map($pb_sidebarRight_animationDuration, 'sm') ease-in-out;
+			}
+
+			@include media-breakpoint-up(md) {
+
+				right: check-map($pb_sidebarRight_widthMinimized, 'md') + check-map($pb_canvas_borderRight, 'md');
+				transition: right check-map($pb_sidebarRight_animationDuration, 'md') ease-in-out, left check-map($pb_sidebarRight_animationDuration, 'md') ease-in-out;
+			}
+
+			@include media-breakpoint-up(lg) {
+
+				right: check-map($pb_sidebarRight_widthMinimized, 'lg') + check-map($pb_canvas_borderRight, 'lg');
+				transition: right check-map($pb_sidebarRight_animationDuration, 'lg') ease-in-out, left check-map($pb_sidebarRight_animationDuration, 'lg') ease-in-out;
+			}
+
+			@include media-breakpoint-up(xl) {
+
+				right: check-map($pb_sidebarRight_widthMinimized, 'xl') + check-map($pb_canvas_borderRight, 'xl');
+				transition: right check-map($pb_sidebarRight_animationDuration, 'xl') ease-in-out, left check-map($pb_sidebarRight_animationDuration, 'xl') ease-in-out;
+			}
+		}
+
+		&.pb_sidebar-right_maximized {
+
+			.pb_sidebar-right {
+
+				@include all-media-property(width, $pb_sidebarRight_widthMaximized);
+			}
+
+			.pb_canvas {
+
+				right: check-map($pb_sidebarRight_widthMaximized, 'xs') + check-map($pb_canvas_borderRight, 'xs');
+
+				@include media-breakpoint-up(sm) {
+
+					right: check-map($pb_sidebarRight_widthMaximized, 'sm') + check-map($pb_canvas_borderRight, 'sm');
+				}
+
+				@include media-breakpoint-up(md) {
+
+					right: check-map($pb_sidebarRight_widthMaximized, 'md') + check-map($pb_canvas_borderRight, 'md');
+				}
+
+				@include media-breakpoint-up(lg) {
+
+					right: check-map($pb_sidebarRight_widthMaximized, 'lg') + check-map($pb_canvas_borderRight, 'lg');
+				}
+
+				@include media-breakpoint-up(xl) {
+
+					right: check-map($pb_sidebarRight_widthMaximized, 'xl') + check-map($pb_canvas_borderRight, 'xl');
+				}
+			}
+		}
+	}
+
+	&.pb_header_minimized {
+
+		.pb_canvas {
+
+			top: check-map($pb_canvas_borderTop, 'xs') + check-map($pb_headerBarMain_heightMinimized, 'xs') + check-map($pb_headerBarMeta_heightMinimized, 'xs');
+
+			@include media-breakpoint-up(sm) {
+
+				top: check-map($pb_canvas_borderTop, 'sm') + check-map($pb_headerBarMain_heightMinimized, 'sm') + check-map($pb_headerBarMeta_heightMinimized, 'sm');
+			}
+
+			@include media-breakpoint-up(md) {
+
+				top: check-map($pb_canvas_borderTop, 'md') + check-map($pb_headerBarMain_heightMinimized, 'md') + check-map($pb_headerBarMeta_heightMinimized, 'md');
+			}
+
+			@include media-breakpoint-up(lg) {
+
+				top: check-map($pb_canvas_borderTop, 'lg') + check-map($pb_headerBarMain_heightMinimized, 'lg') + check-map($pb_headerBarMeta_heightMinimized, 'lg');
+			}
+
+			@include media-breakpoint-up(xl) {
+
+				top: check-map($pb_canvas_borderTop, 'xl') + check-map($pb_headerBarMain_heightMinimized, 'xl') + check-map($pb_headerBarMeta_heightMinimized, 'xl');
+			}
+		}
+	}
+}

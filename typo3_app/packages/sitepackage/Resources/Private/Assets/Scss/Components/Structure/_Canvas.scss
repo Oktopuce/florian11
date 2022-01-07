@@ -1,0 +1,66 @@
+/*
+ * Canvas styles
+ * -------------
+ *
+ * Defines the style of canvas area. This area wraps the whole viewport of
+ * the Website.
+ *
+ * Features:
+ * – Website border support
+ * – Footer always attach to bottom of window
+ *
+ * © 2020 by Klick&Klar GmbH
+ */
+
+.pb_site {
+
+	.pb_canvas {
+
+		background-color: $pb_canvas_backgroundColor;
+		background-position: center center;
+		background-size: cover;
+		display: flex;
+		position: absolute;
+		flex-direction: column;
+		overflow-y: auto;
+		transition: top $pb_header_animationDuration $pb_easingEaseOutCubic;
+
+		@include all-media-property(background-image, $pb_canvas_backgroundImage);
+		@include all-media-property(right, $pb_canvas_borderRight);
+		@include all-media-property(bottom, $pb_canvas_borderBottom);
+		@include all-media-property(left, $pb_canvas_borderLeft);
+		@include all-media-property(border-radius, $pb_canvas_borderRadius);
+
+		top: check-map($pb_canvas_borderTop, 'xs') + check-map($pb_headerBarMain_heightMaximized, 'xs') + check-map($pb_headerBarMeta_heightMaximized, 'xs');
+
+		@include media-breakpoint-up(sm) {
+
+			top: check-map($pb_canvas_borderTop, 'sm') + check-map($pb_headerBarMain_heightMaximized, 'sm') + check-map($pb_headerBarMeta_heightMaximized, 'sm');
+		}
+
+		@include media-breakpoint-up(md) {
+
+			top: check-map($pb_canvas_borderTop, 'md') + check-map($pb_headerBarMain_heightMaximized, 'md') + check-map($pb_headerBarMeta_heightMaximized, 'md');
+		}
+
+		@include media-breakpoint-up(lg) {
+
+			top: check-map($pb_canvas_borderTop, 'lg') + check-map($pb_headerBarMain_heightMaximized, 'lg') + check-map($pb_headerBarMeta_heightMaximized, 'lg');
+		}
+
+		@include media-breakpoint-up(xl) {
+
+			top: check-map($pb_canvas_borderTop, 'xl') + check-map($pb_headerBarMain_heightMaximized, 'xl') + check-map($pb_headerBarMeta_heightMaximized, 'xl');
+		}
+
+		.pb_content {
+
+			flex-grow: 1;
+		}
+
+		.pb_footer {
+
+			margin-top: auto;
+		}
+	}
+}

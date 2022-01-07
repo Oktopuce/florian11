@@ -1,0 +1,8 @@
+
+# Extensions
+# -------------
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript'
+
+# Website
+# -------------
+@import 'EXT:sitepackage/Configuration/TypoScript/Website/constants.typoscript'

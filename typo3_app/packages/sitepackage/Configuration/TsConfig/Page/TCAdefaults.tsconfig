@@ -1,0 +1,7 @@
+
+TCAdefaults {
+  tt_content {
+    # narrow content container
+    layout = 1
+  }
+}

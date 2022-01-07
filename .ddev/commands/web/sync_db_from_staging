@@ -1,0 +1,23 @@
+#!/bin/sh
+## Description: Synchronize database with staging
+## Usage: sync_db_from_staging
+
+# color
+GREEN='\033[0;32m'
+NC='\033[0m\n' # set no color and line end
+
+printf "${GREEN}Run DB dump script on staging server${NC}"
+ssh ${SSH_USER}@${SSH_HOST} "sh ~/scripts/db-dump-staging.sh" -k florian11 -n typo3_florian11_staging
+
+printf "${GREEN}Download DB dump${NC}"
+mkdir -p .ddev/dumps
+rsync -zra \
+    --delete \
+    --remove-source-files \
+    ${SSH_USER}@${SSH_HOST}:~/projects/florian11/db/db-dumps/db-latest.sql.gz \
+    .ddev/dumps/db-latest.sql.gz;
+
+printf "${GREEN}Import the rsynced database${NC}"
+zcat ./.ddev/dumps/db-latest.sql.gz | mysql db
+
+printf "${GREEN}Done${NC}"

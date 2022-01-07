@@ -1,0 +1,122 @@
+/*
+ * Navigation element styles
+ * -------------------------
+ *
+ * Defines the style of the navigation element. The navigation element 
+ * shows a navigation of a specific page path
+ *
+ * © 2020 by Klick&Klar GmbH
+ */
+
+// Level 1
+$pb_navigation-level1_backgroundColor: $pb_color_transparent !default;
+$pb_navigation-level1_innerSpaceTop: 0 !default;
+$pb_navigation-level1_innerSpaceRight: 0 !default;
+$pb_navigation-level1_innerSpaceBottom: 0 !default;
+$pb_navigation-level1_innerSpaceLeft: 0 !default;
+
+// Level 1 – Item
+$pb_navigation-level1-item_spaceBetweenItems: 20px !default;
+$pb_navigation-level1-item_backgroundColor: $pb_color_transparent !default;
+$pb_navigation-level1-item_innerSpaceTop: 10px !default;
+$pb_navigation-level1-item_innerSpaceRight: 20px !default;
+$pb_navigation-level1-item_innerSpaceBottom: 10px !default;
+$pb_navigation-level1-item_innerSpaceLeft: 20px !default;
+$pb_navigation-level1-item-text_family: $pb_typography-navigation_family !default;
+$pb_navigation-level1-item-text_weight: $pb_typography-navigation_weight !default;
+$pb_navigation-level1-item-text_size: $pb_typography-navigation_size !default;
+$pb_navigation-level1-item-text_space: $pb_typography-navigation_space !default;
+$pb_navigation-level1-item-text_color: $pb_typography-navigation_color !default;
+
+// Level 1 – Subitem Icon
+$pb_navigation-level1-item-icon: '\f0d7' !default;
+$pb_navigation-level1-item-icon_family: $pb_typography-icons_family !default;
+$pb_navigation-level1-item-icon_size: 24px !default;
+$pb_navigation-level1-item-icon_color: $pb_color_black !default;
+$pb_navigation-level1-item-icon_width: 20px !default;
+$pb_navigation-level1-item-icon_spaceRight: 15px !default;
+
+// Level 1 – Hover
+$pb_navigation-level1-item_hover_backgroundColor: $pb_color_transparent !default;
+$pb_navigation-level1-item_hover_animationDuration: $pb_durationMedium !default;
+$pb_navigation-level1-item_hover_animationEasing: $pb_easingEaseOutCubic !default;
+$pb_navigation-level1-item-text_hover_color: $pb_typography-navigation_color !default;
+
+// Level 1 – Active
+$pb_navigation-level1-item_active_backgroundColor: $pb_color_transparent !default; 
+$pb_navigation-level1-item-text_active_color: $pb_color_black !default; 
+
+
+
+// Level 2
+$pb_navigation-level2_maxWidth: 300px !default;
+$pb_navigation-level2_backgroundColor: $pb_color_white !default;
+$pb_navigation-level2_innerSpaceTop: 0 !default;
+$pb_navigation-level2_innerSpaceRight: 0 !default;
+$pb_navigation-level2_innerSpaceBottom: 0 !default;
+$pb_navigation-level2_innerSpaceLeft: 0 !default;
+
+// Level 2 – Item
+$pb_navigation-level2-item_spaceBetweenItems: 0px !default;
+$pb_navigation-level2-item_backgroundColor: $pb_color_transparent !default;
+$pb_navigation-level2-item_innerSpaceTop: 10px !default;
+$pb_navigation-level2-item_innerSpaceRight: 20px !default;
+$pb_navigation-level2-item_innerSpaceBottom: 10px !default;
+$pb_navigation-level2-item_innerSpaceLeft: 20px !default;
+$pb_navigation-level2-item-text_family: $pb_typography-navigation_family !default;
+$pb_navigation-level2-item-text_weight: $pb_typography-navigation_weight !default;
+$pb_navigation-level2-item-text_size: $pb_typography-navigation_size !default;
+$pb_navigation-level2-item-text_space: $pb_typography-navigation_space !default;
+$pb_navigation-level2-item-text_color: $pb_typography-navigation_color !default;
+
+// Level 2 – Subitem Icon
+$pb_navigation-level2-item-icon: '\f0d7' !default;
+$pb_navigation-level2-item-icon_family: $pb_typography-icons_family !default;
+$pb_navigation-level2-item-icon_size: 24px !default;
+$pb_navigation-level2-item-icon_color: $pb_color_black !default;
+$pb_navigation-level2-item-icon_width: 20px !default;
+$pb_navigation-level2-item-icon_spaceRight: 15px !default;
+
+// Level 2 – Hover
+$pb_navigation-level2-item_hover_backgroundColor: $pb_color_transparent !default;
+$pb_navigation-level2-item_hover_animationDuration: $pb_durationMedium !default;
+$pb_navigation-level2-item_hover_animationEasing: $pb_easingEaseOutCubic !default;
+$pb_navigation-level2-item-text_hover_color: $pb_typography-navigation_color !default;
+
+// Level 2 – Active
+$pb_navigation-level2-item_active_backgroundColor: $pb_color_transparent !default; 
+$pb_navigation-level2-item-text_active_color: $pb_color_black !default; 
+
+
+
+// Level 3
+$pb_navigation-level3_maxWidth: 300px !default;
+$pb_navigation-level3_offsetTop: 20px !default;
+$pb_navigation-level3_backgroundColor: $pb_color_white !default;
+$pb_navigation-level3_innerSpaceTop: 0 !default;
+$pb_navigation-level3_innerSpaceRight: 0 !default;
+$pb_navigation-level3_innerSpaceBottom: 0 !default;
+$pb_navigation-level3_innerSpaceLeft: 0 !default;
+
+// Level 3 – Item
+$pb_navigation-level3-item_spaceBetweenItems: 0px !default;
+$pb_navigation-level3-item_backgroundColor: $pb_color_transparent !default;
+$pb_navigation-level3-item_innerSpaceTop: 10px !default;
+$pb_navigation-level3-item_innerSpaceRight: 20px !default;
+$pb_navigation-level3-item_innerSpaceBottom: 10px !default;
+$pb_navigation-level3-item_innerSpaceLeft: 20px !default;
+$pb_navigation-level3-item-text_family: $pb_typography-navigation_family !default;
+$pb_navigation-level3-item-text_weight: $pb_typography-navigation_weight !default;
+$pb_navigation-level3-item-text_size: $pb_typography-navigation_size !default;
+$pb_navigation-level3-item-text_space: $pb_typography-navigation_space !default;
+$pb_navigation-level3-item-text_color: $pb_typography-navigation_color !default;
+
+// Level 2 – Hover
+$pb_navigation-level3-item_hover_backgroundColor: $pb_color_transparent !default;
+$pb_navigation-level3-item_hover_animationDuration: $pb_durationMedium !default;
+$pb_navigation-level3-item_hover_animationEasing: $pb_easingEaseOutCubic !default;
+$pb_navigation-level3-item-text_hover_color: $pb_typography-navigation_color !default;
+
+// Level 2 – Active
+$pb_navigation-level3-item_active_backgroundColor: $pb_color_transparent !default; 
+$pb_navigation-level3-item-text_active_color: $pb_color_black !default; 

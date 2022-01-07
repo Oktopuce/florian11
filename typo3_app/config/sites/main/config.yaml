@@ -1,0 +1,14 @@
+base: 'https://florian11.panda-preview.ch/'
+baseVariants:
+  -
+    base: 'https://florian11.ddev.site'
+    condition: 'applicationContext == "Development/Local"'
+errorHandling: {  }
+languages:
+    - { title: Deutsch, enabled: 1, base: /de/, typo3Language: de, locale: de_CH.UTF-8, iso-639-1: de, websiteTitle: '', navigationTitle: DE, hreflang: de-CH, direction: '', flag: ch, languageId: '0' }
+    - { title: French, enabled: 1, base: /fr/, typo3Language: fr, locale: fr_CH.UTF-8, iso-639-1: fr, websiteTitle: '', navigationTitle: FR, hreflang: fr-CH, direction: '', flag: fr, languageId: '1' }
+    - { title: Italian, enabled: 1, base: /it/, typo3Language: it, locale: it_CH.UTF-8, iso-639-1: it, websiteTitle: '', navigationTitle: IT, hreflang: it-CH, direction: '', flag: it, languageId: '2' }
+
+rootPageId: 1
+routes: {  }
+websiteTitle: 'Test generate SCSS files'

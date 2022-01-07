@@ -1,0 +1,73 @@
+config {
+
+    debug = 1
+    admPanel = 0
+    contentObjectExceptionHandler = 0
+
+    absRefPrefix = /
+    doctype = html5
+
+    # Disable Image Upscaling
+    noScaleUp = 1
+
+    disablePrefixComment = 1
+
+    # Spam protection
+    spamProtectEmailAddresses = 1
+    spamProtectEmailAddresses_atSubst = @
+
+    # links global targetten
+    intTarget = _top
+    extTarget = _blank
+    fileTarget = _blank
+
+    # disable indexed_search
+    index_enable = 0
+    index_metatags = 1
+    index_externals = 0
+
+    # CACHE
+    # 24*60*60:
+    cache_period = 86400
+    no_cache = 0
+
+    # JS and CSS
+    compressJs = 0
+    compressCss = 0
+    concatenateJs = 0
+    concatenateCss = 0
+
+    # If set, the inline styles TYPO3 controls
+    # in the core are written to a file
+    inlineStyle2TempFile = 0
+
+    # All javascript (includes and inline) will be
+    # moved to the bottom of the html document
+    moveJsFromHeaderToFooter = 1
+
+    # If set, the default JavaScript in the header will be
+    # removed (blurLink function and browser detection variables)
+    removeDefaultJS = 1
+
+    # If set inline or externalized
+    # (see removeDefaultJS above)
+    # JavaScript will be minified
+    minifyJS = 0
+}
+
+
+
+# Language
+############################
+config {
+    # language without language fallback
+    sys_language_mode = strict
+    sys_language_overlay = 0
+
+    sys_language_uid = 0
+    linkVars = L(0-1)
+    language = de
+    locale_all = de_DE.utf-8
+    htmlTag_setParams = lang="de-CH" dir="ltr"
+}
+

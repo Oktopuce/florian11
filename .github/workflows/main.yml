@@ -1,0 +1,76 @@
+
+name: Production
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup PHP with composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: composer:v2
+
+      - name: Checkout GIT repo
+        uses: actions/checkout@v2
+
+      - name: composer install
+        run: |
+          cd typo3_app
+          composer install --no-dev --no-suggest
+
+      # - name: Build JS/CSS files
+      #   run: |
+      #     echo pwd
+      #     cd typo3_app/packages/sitepackage
+      #     npm install
+      #     npm run build
+
+      - name: Create basic file structure
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets/production
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets/production/fileadmin
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/releases
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/releases/production
+
+      - name: Sync files to production
+        uses: AEnterprise/rsync-deploy@v1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_KEY }}
+          ARGS: "-zrSlh --delete --stats --exclude-from=deployment-exclude-list.txt"
+          SERVER_PORT: 22
+          FOLDER: ./
+          SERVER_IP: ${{ secrets.SSH_HOST }}
+          USERNAME: ${{ secrets.SSH_USER }}
+          SERVER_DESTINATION: ${{ secrets.DOCUMENT_ROOT }}/releases/production
+
+      - name: Set symlinks, update database schema
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            cd ${{ secrets.DOCUMENT_ROOT }}/releases/production/typo3_app/typo3-secure-web/typo3conf
+            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared_assets/ContextConfiguration.php ContextConfiguration.php
+            cd ${{ secrets.DOCUMENT_ROOT }}/releases/production/typo3_app/typo3-secure-web
+            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared_assets/production/fileadmin fileadmin
+            cd ..
+            export TYPO3_CONTEXT=Production
+            ./vendor/bin/typo3cms database:updateschema "*"
+            ./vendor/bin/typo3cms install:fixfolderstructure
+            ./vendor/bin/typo3cms extension:setupactive
+            ./vendor/bin/typo3cms language:update

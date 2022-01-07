@@ -1,0 +1,7 @@
+
+# mod.web_list {
+#   table {
+#     tx_extname_domain_model_name.hideTable = 1
+#   }
+# }
+

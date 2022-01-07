@@ -1,0 +1,38 @@
+/*
+ * Sidebar left styles
+ * -------------------
+ *
+ * Defines the style of the left sidebar. This area is located left to the viewport
+ * of the website and contains different elements like logo, navigation, ect.
+ * The bar has three modes: slide-over, slide-in and fix
+ *
+ * Slide-over:
+ * The sidebar moves over the content area
+ *
+ * Slide-in:
+ * The sidebar will displace the content area to the right
+ *
+ * Fix:
+ * The sidebar is fixed visible and displace the content area to the right
+ *
+ * © 2020 by Klick&Klar GmbH
+ */
+
+$pb_sidebarRight_backgroundColor: $pb_color_gray20 !default;
+$pb_sidebarRight_animationDuration: $pb_durationMedium !default;
+
+$pb_sidebarRight_widthMinimized: (
+  xs: 200px,
+  sm: 250px,
+  md: 300px,
+  lg: 300px,
+  xl: 400px
+) !default;
+
+$pb_sidebarRight_widthMaximized: (
+  xs: 250px,
+  sm: 300px,
+  md: 350px,
+  lg: 350px,
+  xl: 450px
+) !default;

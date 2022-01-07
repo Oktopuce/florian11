@@ -1,0 +1,183 @@
+
+name: Staging
+
+on:
+  push:
+    branches: [staging]
+
+jobs:
+  first_install:
+    # this workflow will only be used for the very first commit
+    # when TYPO3 needs to be installed
+    if: github.run_number == 1
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup PHP with composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: composer:v2
+
+      - name: Checkout GIT repo
+        uses: actions/checkout@v2
+
+      # - name: Test secrets
+      #   run: |
+      #     echo "Host:"
+      #     echo "${{ secrets.SSH_HOST }}" | base64 -i
+      #     echo "User:"
+      #     echo "${{ secrets.SSH_USER }}" | base64 -i
+      #     echo "Key:"
+      #     echo "${{ secrets.SSH_KEY }}" | base64 -i
+      #     echo "Doc Root:"
+      #     echo "${{ secrets.DOCUMENT_ROOT }}" | base64 -i
+
+      - name: composer install
+        run: |
+          cd typo3_app
+          composer install --no-dev --no-suggest
+
+      - name: Build JS/CSS files
+        run: |
+          cd typo3_app/packages/sitepackage
+          npm install
+          npm run build
+
+      - name: Create basic file structure
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging/fileadmin
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/releases/staging
+
+      - name: Sync files to staging
+        uses: AEnterprise/rsync-deploy@v1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_KEY }}
+          ARGS: "-zrSlh --delete --stats --exclude-from=deployment-exclude-list.txt"
+          SERVER_PORT: 22
+          FOLDER: ./
+          SERVER_IP: ${{ secrets.SSH_HOST }}
+          USERNAME: ${{ secrets.SSH_USER }}
+          SERVER_DESTINATION: ${{ secrets.DOCUMENT_ROOT }}/releases/staging
+
+
+      - name: Set symlinks, Install TYPO3, update database schema
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            cd ${{ secrets.DOCUMENT_ROOT }}/releases/staging/typo3_app/typo3-secure-web/typo3conf
+            ln -sf ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging/ContextConfiguration.php ContextConfiguration.php
+            cd ${{ secrets.DOCUMENT_ROOT }}/releases/staging/typo3_app/typo3-secure-web
+            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging/fileadmin fileadmin
+            cd ${{ secrets.DOCUMENT_ROOT }}
+            ln -s ./releases/staging/public_html staging
+            cd ${{ secrets.DOCUMENT_ROOT }}/releases/staging/typo3_app/
+            export TYPO3_CONTEXT=Production/Staging
+            ./vendor/bin/typo3cms install:setup --no-interaction --site-name="${{ secrets.PROJECT_NAME }}" --admin-user-name=${{ secrets.TYPO3_ADMIN_USERNAME }} --admin-password=${{ secrets.TYPO3_ADMIN_PASSWORD }} --database-name=${{ secrets.DB_NAME_STAGING }} --use-existing-database --database-user-name=${{ secrets.DB_USER }} --database-user-password=${{ secrets.DB_PASSWORD }} --database-host-name=localhost --web-server-config=apache --force
+            ./vendor/bin/typo3cms database:updateschema "*"
+            ./vendor/bin/typo3cms install:fixfolderstructure
+            ./vendor/bin/typo3cms extension:setupactive
+            ./vendor/bin/typo3cms language:update
+            apacheusr=$(ps -ef | egrep '(httpd|apache2|apache)' | grep -v `whoami` | grep -v root | head -n1 | awk '{print $1}')
+            sh ~/scripts/fix-project-permissions.sh -k ${{ secrets.PROJECT_KEY }} -r ${{ secrets.DOCUMENT_ROOT }}
+            sh ~/scripts/db-import-initial-project-data.sh -k ${{ secrets.PROJECT_KEY }} -d ${{ secrets.DB_NAME_STAGING }} -u ${{ secrets.DB_USER }} -p ${{ secrets.DB_PASSWORD }}
+
+      - name: Make Request
+        id: pingRequest
+        uses: fjogeleit/http-request-action@master
+        with:
+          method: 'POST'
+          contentType: application/x-www-form-urlencoded
+          url: "https://cockpit.panda-website.ch/webhook/postInstallSuccess/${{ secrets.PROJECT_KEY }}"
+          data: 'webhookKey=bagqMTbQBB51UQ7F1OOIBEiShmDRPj1efe1RmSjnSE12lJcb'
+
+      - name: Show Response
+        run: echo ${{ steps.pingRequest.outputs.response }}
+
+  deploy:
+    # this is the regular deployment workflow
+    # we skip the first two commits to this repository
+    # because the first 2 commits are reserverd for the initial
+    # create project build process
+    if: github.run_number > 2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup PHP with composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: composer:v2
+
+      - name: Checkout GIT repo
+        uses: actions/checkout@v2
+
+      - name: composer install
+        run: |
+          cd typo3_app
+          composer install --no-dev --no-suggest
+
+      - name: Build JS/CSS files
+        run: |
+          echo pwd
+          cd typo3_app/packages/sitepackage
+          npm install
+          npm run build
+
+      - name: Create basic file structure
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging/fileadmin
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/releases
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/releases/staging
+            sh ~/scripts/fix-project-permissions.sh -k ${{ secrets.PROJECT_KEY }} -r ${{ secrets.DOCUMENT_ROOT }}
+
+      - name: Sync files to staging
+        uses: AEnterprise/rsync-deploy@v1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_KEY }}
+          ARGS: "-zrSlh --delete --stats --exclude-from=deployment-exclude-list.txt"
+          SERVER_PORT: 22
+          FOLDER: ./
+          SERVER_IP: ${{ secrets.SSH_HOST }}
+          USERNAME: ${{ secrets.SSH_USER }}
+          SERVER_DESTINATION: ${{ secrets.DOCUMENT_ROOT }}/releases/staging
+
+      - name: Set symlinks, update database schema
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            cd ${{ secrets.DOCUMENT_ROOT }}/releases/staging/typo3_app/typo3-secure-web/typo3conf
+            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging/ContextConfiguration.php ContextConfiguration.php
+            cd ${{ secrets.DOCUMENT_ROOT }}/releases/staging/typo3_app/typo3-secure-web
+            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging/fileadmin fileadmin
+            cd ..
+            export TYPO3_CONTEXT=Production/Staging
+            ./vendor/bin/typo3cms database:updateschema "*"
+            ./vendor/bin/typo3cms install:fixfolderstructure
+            ./vendor/bin/typo3cms extension:setupactive
+            ./vendor/bin/typo3cms language:update
+            ./vendor/bin/typo3cms cache:flush
+            sh ~/scripts/fix-project-permissions.sh -k ${{ secrets.PROJECT_KEY }} -r ${{ secrets.DOCUMENT_ROOT }}

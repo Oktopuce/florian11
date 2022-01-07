@@ -1,0 +1,5 @@
+# define a label and a flag for the default language
+mod.SHARED {
+    defaultLanguageFlag = de
+    defaultLanguageLabel = Deutsch
+}

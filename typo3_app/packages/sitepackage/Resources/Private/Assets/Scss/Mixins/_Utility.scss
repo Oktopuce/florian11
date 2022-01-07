@@ -1,0 +1,8 @@
+// Returns a map if a value is a map otherwise return a value
+@function check-map($value, $breakpoint) {
+    @if type-of($value) == 'map'{
+        @return map-get($value, $breakpoint);
+    } @else {
+        @return $value;
+    }
+}
