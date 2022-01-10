@@ -1,0 +1,20 @@
+/*
+ * Header styles
+ * -------------
+ *
+ * Defines the style of header area. This area is located an top of the Website
+ * and contains different elements like logo, navigation, ect.
+ *
+ * © 2020 by Klick&Klar GmbH
+ */
+
+$pb_header_backgroundColorMaximized: #FFFFFF;
+$pb_header_backgroundColorMinimized: #FFFFFF;
+$pb_header_animationDuration: (
+  xs: 300,
+  sm: 300,
+  md: 300,
+  lg: 300,
+  xl: 300
+);
+$pb_header_animationEasing: ease_in_out;

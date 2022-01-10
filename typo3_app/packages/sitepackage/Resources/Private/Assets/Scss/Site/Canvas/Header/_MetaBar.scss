@@ -1,0 +1,28 @@
+/*
+ * Metabar styles
+ * --------------
+ *
+ * Defines the style of metabar area. This area is located an top of the Website
+ * and contains different elements like logo, navigation, ect.
+ *
+ * © 2020 by Klick&Klar GmbH
+ */
+ 
+$pb_headerBarMeta_heightMaximized: (
+  xs: ###heightMaximized_xs###,
+  sm: ###heightMaximized_sm###,
+  md: ###heightMaximized_md###,
+  lg: ###heightMaximized_lg###,
+  xl: ###heightMaximized_xl###
+);
+
+$pb_headerBarMeta_heightMinimized: (
+  xs: ###heightMinimized_xs###,
+  sm: ###heightMinimized_sm###,
+  md: ###heightMinimized_md###,
+  lg: ###heightMinimized_lg###,
+  xl: ###heightMinimized_xl###
+);
+
+$pb_headerBarMeta_backgroundColorMaximized: #FFFFFF;
+$pb_headerBarMeta_backgroundColorMinimized: #FFFFFF;

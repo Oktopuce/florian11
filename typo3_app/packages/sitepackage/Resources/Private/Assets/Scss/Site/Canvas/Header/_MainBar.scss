@@ -1,0 +1,28 @@
+/*
+ * Mainbar styles
+ * --------------
+ *
+ * Defines the style of mainbar area. This area is located an top of the Website
+ * and contains different elements like logo, navigation, ect.
+ *
+ * © 2020 by Klick&Klar GmbH
+ */
+ 
+$pb_headerBarMain_heightMaximized: (
+  xs: 100,
+  sm: 100,
+  md: 100,
+  lg: 100,
+  xl: 100
+);
+
+$pb_headerBarMain_heightMinimized: (
+  xs: 60,
+  sm: 60,
+  md: 60,
+  lg: 60,
+  xl: 60
+);
+
+$pb_headerBarMain_backgroundColorMaximized: #FFFFFF;
+$pb_headerBarMain_backgroundColorMinimized: #FFFFFF;
