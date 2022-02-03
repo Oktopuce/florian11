@@ -8,46 +8,46 @@
  * © 2020 by Klick&Klar GmbH
  */
 
-$pb_canvas_backgroundColor: $pb_color_gray10 !default;
-$pb_canvas_backgroundImage: none !default;
-$pb_canvas_borderColor: $pb_color_white !default;
+$pb_canvas_backgroundColor: #FFFFFF !default;
+$pb_canvas_backgroundImage: /test/filename.txt color red !default;
+$pb_canvas_borderColor: red !default;
 
 $pb_canvas_borderTop: (
-  xs: 5px,
-  sm: 5px,
-  md: 10px,
-  lg: 20px,
-  xl: 20px
+  xs: 90px,
+  sm: 91px,
+  md: 92px,
+  lg: 93px,
+  xl: 94px
 ) !default;
 
 $pb_canvas_borderRight: (
-  xs: 5px,
-  sm: 5px,
-  md: 10px,
-  lg: 20px,
-  xl: 20px
+  xs: 51px,
+  sm: 52px,
+  md: 53px,
+  lg: 54px,
+  xl: 55px
 ) !default;
 
 $pb_canvas_borderBottom: (
-  xs: 5px,
-  sm: 5px,
-  md: 10px,
-  lg: 20px,
-  xl: 20px
+  xs: 61px,
+  sm: 62px,
+  md: 63px,
+  lg: 64px,
+  xl: 65px
 ) !default;
 
 $pb_canvas_borderLeft: (
-  xs: 5px,
-  sm: 5px,
-  md: 10px,
-  lg: 20px,
-  xl: 20px
+  xs: 70px,
+  sm: 71px,
+  md: 72px,
+  lg: 73px,
+  xl: 74px
 ) !default;
 
 $pb_canvas_borderRadius: (
-  xs: 5px,
-  sm: 5px,
-  md: 10px,
-  lg: 20px,
-  xl: 20px
+  xs: 81px,
+  sm: 82px,
+  md: 83px,
+  lg: 84px,
+  xl: 85px
 ) !default;

@@ -10,24 +10,68 @@
 
 $pb_header_backgroundColor: transparent !default;
 $pb_header_animationDuration: $pb_durationMedium !default;
-$pb_header_animationEasing: $pb_easingEaseOutCubic !default;
+$pb_header_animationEasing: ease_in_out !default;
 
 $pb_headerBarMain_heightMaximized: 70px !default;
 
 $pb_headerBarMain_heightMinimized: 50px !default;
 
-$pb_headerBarMain_backgroundColorMaximized: transparent !default;
-$pb_headerBarMain_backgroundColorMinimized: $pb_headerBarMain_backgroundColorMaximized !default;
+$pb_headerBarMain_backgroundColorMaximized: #FFFFFF !default;
+$pb_headerBarMain_backgroundColorMinimized: #FFFFFF !default;
 
 $pb_headerBarMeta_heightMaximized: (
-  xs: 0,
-  sm: 0,
-  md: 50px,
-  lg: 50px,
-  xl: 50px
+  xs: 90px,
+  sm: 91px,
+  md: 92px,
+  lg: 93px,
+  xl: 94px
 ) !default;
 
-$pb_headerBarMeta_heightMinimized: 0 !default;
+$pb_headerBarMeta_heightMinimized: 60px !default;
 
-$pb_headerBarMeta_backgroundColorMaximized: transparent !default;
-$pb_headerBarMeta_backgroundColorMinimized: $pb_headerBarMeta_backgroundColorMaximized !default;
+$pb_headerBarMeta_backgroundColorMaximized: #FFFFFF !default;
+$pb_headerBarMeta_backgroundColorMinimized: #FFFFFF !default;
+
+$pb_header_backgroundColorMaximized: #FFFFFF;
+
+$pb_header_backgroundColorMinimized: #FFFFFF;
+
+$pb_header_minimizeThreshold: (
+  xs: 100px,
+  sm: 100px,
+  md: 100px,
+  lg: 100px,
+  xl: 100px
+);
+
+$pb_header_maximizeThreshold: (
+  xs: 10px,
+  sm: 10px,
+  md: 10px,
+  lg: 10px,
+  xl: 10px
+);
+
+$pb_header_animationDuration: (
+  xs: 300px,
+  sm: 300px,
+  md: 300px,
+  lg: 300px,
+  xl: 300px
+);
+
+$pb_headerBarMain_heightMaximized: (
+  xs: 100px,
+  sm: 100px,
+  md: 100px,
+  lg: 100px,
+  xl: 100px
+);
+
+$pb_headerBarMain_heightMinimized: (
+  xs: 60px,
+  sm: 60px,
+  md: 60px,
+  lg: 60px,
+  xl: 60px
+);

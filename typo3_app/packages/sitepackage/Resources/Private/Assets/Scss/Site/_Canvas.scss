@@ -9,45 +9,45 @@
  */
 
 $pb_canvas_backgroundColor: #FFFFFF;
-$pb_canvas_backgroundImage: none;
-$pb_canvas_borderColor: transparent;
+$pb_canvas_backgroundImage: /test/filename.txt color red;
+$pb_canvas_borderColor: red;
 
 $pb_canvas_borderTop: (
-  xs: 0,
-  sm: 0,
-  md: 0,
-  lg: 0,
-  xl: 0
+  xs: 90,
+  sm: 91,
+  md: 92,
+  lg: 93,
+  xl: 94
 ) !default;
 
 $pb_canvas_borderRight: (
-  xs: 0,
-  sm: 0,
-  md: 0,
-  lg: 0,
-  xl: 0
+  xs: 51,
+  sm: 52,
+  md: 53,
+  lg: 54,
+  xl: 55
 ) !default;
 
 $pb_canvas_borderBottom: (
-  xs: 0,
-  sm: 0,
-  md: 0,
-  lg: 0,
-  xl: 0
+  xs: 61,
+  sm: 62,
+  md: 63,
+  lg: 64,
+  xl: 65
 ) !default;
 
 $pb_canvas_borderLeft: (
-  xs: 0,
-  sm: 0,
-  md: 0,
-  lg: 0,
-  xl: 0
+  xs: 70,
+  sm: 71,
+  md: 72,
+  lg: 73,
+  xl: 74
 ) !default;
 
 $pb_canvas_borderRadius: (
-  xs: 0,
-  sm: 0,
-  md: 0,
-  lg: 0,
-  xl: 0
+  xs: 81,
+  sm: 82,
+  md: 83,
+  lg: 84,
+  xl: 85
 ) !default;
