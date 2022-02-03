@@ -20,14 +20,14 @@ $pb_headerBarMain_backgroundColorMaximized: #FFFFFF !default;
 $pb_headerBarMain_backgroundColorMinimized: #FFFFFF !default;
 
 $pb_headerBarMeta_heightMaximized: (
-  xs: 90px,
-  sm: 91px,
-  md: 92px,
-  lg: 93px,
-  xl: 94px
+  xs: 100px,
+  sm: 100px,
+  md: 100px,
+  lg: 100px,
+  xl: 100px
 ) !default;
 
-$pb_headerBarMeta_heightMinimized: 60px !default;
+$pb_headerBarMeta_heightMinimized: 0 !default;
 
 $pb_headerBarMeta_backgroundColorMaximized: #FFFFFF !default;
 $pb_headerBarMeta_backgroundColorMinimized: #FFFFFF !default;
@@ -69,6 +69,14 @@ $pb_headerBarMain_heightMaximized: (
 );
 
 $pb_headerBarMain_heightMinimized: (
+  xs: 60px,
+  sm: 60px,
+  md: 60px,
+  lg: 60px,
+  xl: 60px
+);
+
+$pb_headerBarMeta_heightMinimized: (
   xs: 60px,
   sm: 60px,
   md: 60px,
