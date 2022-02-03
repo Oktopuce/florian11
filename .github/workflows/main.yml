@@ -39,9 +39,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets
-            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets/production
-            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets/production/fileadmin
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared/production
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared/production/fileadmin
             mkdir -p ${{ secrets.DOCUMENT_ROOT }}/releases
             mkdir -p ${{ secrets.DOCUMENT_ROOT }}/releases/production
 
@@ -65,9 +65,9 @@ jobs:
           port: 22
           script: |
             cd ${{ secrets.DOCUMENT_ROOT }}/releases/production/typo3_app/typo3-secure-web/typo3conf
-            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared_assets/ContextConfiguration.php ContextConfiguration.php
+            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared/ContextConfiguration.php ContextConfiguration.php
             cd ${{ secrets.DOCUMENT_ROOT }}/releases/production/typo3_app/typo3-secure-web
-            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared_assets/production/fileadmin fileadmin
+            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared/production/fileadmin fileadmin
             cd ..
             export TYPO3_CONTEXT=Production
             ./vendor/bin/typo3cms database:updateschema "*"

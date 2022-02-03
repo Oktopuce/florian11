@@ -53,7 +53,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging/fileadmin
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared/staging/fileadmin
             mkdir -p ${{ secrets.DOCUMENT_ROOT }}/releases/staging
 
       - name: Sync files to staging
@@ -77,9 +77,9 @@ jobs:
           port: 22
           script: |
             cd ${{ secrets.DOCUMENT_ROOT }}/releases/staging/typo3_app/typo3-secure-web/typo3conf
-            ln -sf ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging/ContextConfiguration.php ContextConfiguration.php
+            ln -sf ${{ secrets.DOCUMENT_ROOT }}/shared/staging/ContextConfiguration.php ContextConfiguration.php
             cd ${{ secrets.DOCUMENT_ROOT }}/releases/staging/typo3_app/typo3-secure-web
-            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging/fileadmin fileadmin
+            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared/staging/fileadmin fileadmin
             cd ${{ secrets.DOCUMENT_ROOT }}
             ln -s ./releases/staging/public_html staging
             cd ${{ secrets.DOCUMENT_ROOT }}/releases/staging/typo3_app/
@@ -143,9 +143,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets
-            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging
-            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging/fileadmin
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared/staging
+            mkdir -p ${{ secrets.DOCUMENT_ROOT }}/shared/staging/fileadmin
             mkdir -p ${{ secrets.DOCUMENT_ROOT }}/releases
             mkdir -p ${{ secrets.DOCUMENT_ROOT }}/releases/staging
             sh ~/scripts/fix-project-permissions.sh -k ${{ secrets.PROJECT_KEY }} -r ${{ secrets.DOCUMENT_ROOT }}
@@ -170,9 +170,9 @@ jobs:
           port: 22
           script: |
             cd ${{ secrets.DOCUMENT_ROOT }}/releases/staging/typo3_app/typo3-secure-web/typo3conf
-            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging/ContextConfiguration.php ContextConfiguration.php
+            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared/staging/ContextConfiguration.php ContextConfiguration.php
             cd ${{ secrets.DOCUMENT_ROOT }}/releases/staging/typo3_app/typo3-secure-web
-            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared_assets/staging/fileadmin fileadmin
+            ln -s ${{ secrets.DOCUMENT_ROOT }}/shared/staging/fileadmin fileadmin
             cd ..
             export TYPO3_CONTEXT=Production/Staging
             ./vendor/bin/typo3cms database:updateschema "*"

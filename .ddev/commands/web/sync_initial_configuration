@@ -9,7 +9,7 @@ NC='\033[0m\n' # set no color and line end
 printf "${GREEN}Download initial configuration...${NC}"
 rsync -zra \
     --delete \
-    ${SSH_USER}@${SSH_HOST}:~/projects/florian11/shared_assets/staging/ContextConfiguration.php \
+    ${SSH_USER}@${SSH_HOST}:~/projects/florian11/shared/staging/ContextConfiguration.php \
     typo3_app/typo3-secure-web/typo3conf;
 
 rsync -zra \
